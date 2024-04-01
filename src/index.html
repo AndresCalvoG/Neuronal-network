@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Logic IA</title>
+  </head>
+  <body>
+    <div id="root">
+      <section class="container">
+        <section class="inputs">
+          <label class="input-field">
+            Input A:
+            <input type="number" id="input-a" />
+          </label>
+          <label class="input-field">
+            Input B:
+            <input type="number" id="input-b" />
+          </label>
+          <label class="input-field">
+            Expected Output:
+            <input type="number" id="expected" />
+          </label>
+          <button class="train-btn" id="train-btn">Train</button>
+          <button class="train-btn" id="predict-btn">predict</button>
+        </section>
+        <section>
+          <div></div>
+        </section>
+      </section>
+    </div>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
