@@ -13,7 +13,8 @@ export class Neuron {
 
   // Función de activación
   actiavteFn(x) {
-    console.log("result: ", x);
+    //console.log("result: ", x);
+    //return activationFns.step(x);
     return activationFns.sigmoid(x);
   }
 
@@ -22,7 +23,14 @@ export class Neuron {
     let activation = this.bias;
     for (let i = 0; i < inputs.length; i++) {
       activation += inputs[i] * this.weights[i];
+      // console.log(`
+      // Input ${i}: ${this.input[i]}
+      // weight ${i}: ${this.weights[i]}
+      // `);
     }
+    // console.log(`
+    // bias: ${this.bias}
+    // `);
     return this.actiavteFn(activation);
   }
 }

@@ -10,7 +10,8 @@ const predictBtn = document.getElementById("predict-btn");
 const inputA = document.getElementById("input-a");
 const inputB = document.getElementById("input-b");
 const expected = document.getElementById("expected");
-const neuralNetwork = new NeuralNetwork(inputSize, hiddenSize, outputSize);
+const neuralNetwork = new NeuralNetwork(inputSize, outputSize);
+//const neuralNetwork = new NeuralNetwork(inputSize, hiddenSize, outputSize);
 
 // Datos de entrenamiento (OR gate)
 const trainingDataOR = [
@@ -55,7 +56,7 @@ predictBtn.addEventListener("click", () => {
 
 // Entrenamiento de la red neuronal
 for (let i = 0; i < 1000; i++) {
-  for (const data of trainingDataXOR) {
+  for (const data of trainingDataAND) {
     neuralNetwork.train(data.inputs, data.expectedOutput, learningRate);
   }
 }
