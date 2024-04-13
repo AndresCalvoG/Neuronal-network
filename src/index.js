@@ -1,4 +1,5 @@
 import { NeuralNetwork } from "./neuralNetwork.js";
+import { DataGateAND, DataGateOR, DataGateXOR } from "./trainingData.js";
 
 const inputSize = 2;
 const hiddenSize = 2;
@@ -12,30 +13,6 @@ const inputB = document.getElementById("input-b");
 const expected = document.getElementById("expected");
 const neuralNetwork = new NeuralNetwork(inputSize, outputSize);
 //const neuralNetwork = new NeuralNetwork(inputSize, hiddenSize, outputSize);
-
-// Datos de entrenamiento (OR gate)
-const trainingDataOR = [
-  { inputs: [0, 0], expectedOutput: 0 },
-  { inputs: [0, 1], expectedOutput: 1 },
-  { inputs: [1, 0], expectedOutput: 1 },
-  { inputs: [1, 1], expectedOutput: 1 },
-];
-
-// Datos de entrenamiento (AND gate)
-const trainingDataAND = [
-  { inputs: [0, 0], expectedOutput: 0 },
-  { inputs: [0, 1], expectedOutput: 0 },
-  { inputs: [1, 0], expectedOutput: 0 },
-  { inputs: [1, 1], expectedOutput: 1 },
-];
-
-// Datos de entrenamiento (XOR gate)
-const trainingDataXOR = [
-  { inputs: [0, 0], expectedOutput: [0] },
-  { inputs: [0, 1], expectedOutput: [1] },
-  { inputs: [1, 0], expectedOutput: [1] },
-  { inputs: [1, 1], expectedOutput: [0] },
-];
 
 trainBtn.addEventListener("click", () => {
   const data = {
@@ -56,7 +33,7 @@ predictBtn.addEventListener("click", () => {
 
 // Entrenamiento de la red neuronal
 for (let i = 0; i < 1000; i++) {
-  for (const data of trainingDataAND) {
+  for (const data of DataGateAND) {
     neuralNetwork.train(data.inputs, data.expectedOutput, learningRate);
   }
 }
